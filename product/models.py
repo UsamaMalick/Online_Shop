@@ -33,7 +33,7 @@ class Products(models.Model):
     ranking = models.PositiveIntegerField(default=1 , validators=[MaxValueValidator(10) , MinValueValidator(1)])
     created_at = models.DateTimeField(default= datetime.now())
     updated_at = models.DateTimeField(default= datetime.now())
-    front_image = models.ImageField(upload_to='virsa/')
+    front_image = models.ImageField(upload_to='Online_Shop/')
 
     class Meta:
         ordering = ('-created_at' , )
@@ -45,7 +45,7 @@ class Products(models.Model):
 
 class product_images(models.Model):
     product_id = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
-    display_image = models.ImageField(upload_to='virsa/')
+    display_image = models.ImageField(upload_to='Online_Shop/')
 
    # def __str__(self):
        # return self. product_id

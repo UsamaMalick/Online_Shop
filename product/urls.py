@@ -5,13 +5,13 @@ app_name = 'product'
 
 urlpatterns = [
     # /product/
-    path('' , views.temp, name='temp'),
+    path('' , views.shop, name='temp'),
     # /products/id/
     # path('<category_slug>/', views.category_list, name='category_list'),
     #/products/id/product_name
 
-
-    # path('<product_code>/' , views.product_info , name='product_info'),
+    #/product/slug/
+    path('<product_slug>/' , views.product_info , name='product_info'),
 
 
 
