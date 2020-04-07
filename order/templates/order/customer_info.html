@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<title>Customer Info</title>
+
+
+<!-- breadcrumb -->
+	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+		<a href="{% url 'home_page' %}" class="s-text16">
+			Bag
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="{% url 'products:shop'  %}" class="s-text16">
+            Customer information
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+        <a href="{% url 'products:shop'  %}" class="s-text16">
+             Shipping method
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<span class="s-text17">
+            Shipping method
+		</span>
+	</div>
+
+	<!-- content page -->
+	<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 p-b-30">
+                    <form class="leave-comment" action="{% url 'send_email' %}" method="GET" >
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="m-text15 p-b-30 p-t-10">
+                                    Customer Contact
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="m-text8 p-b-30 p-t-10">
+                                    Already have an account !
+                                    <a href="{% url 'login' %}" style="font-weight:600; color:blue;"  title="Login"> Login </a>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="bo5 of-hidden size15 m-b-20" data-validate = "Email is required: ex@abc.xyz">
+							<input id="email" class="sizefull s-text7 p-l-22 p-r-22" type="email" name="email" placeholder="Email Address" required>
+						</div>
+
+                        <h4 class="m-text15 p-b-30 p-t-10">
+                            Shiping information
+                        </h4>
+
+
+                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="bo5 of-hidden size15 m-b-20">
+							        <input id="f_name" class="sizefull s-text7 p-l-22 p-r-22" type="text" name="f_name" placeholder="First Name" required>
+						        </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bo5 of-hidden size15 m-b-20">
+							        <input id="l_name" class="sizefull s-text7 p-l-22 p-r-22" type="text" name="l_name" placeholder="Last Name" required>
+						        </div>
+                            </div>
+                        </div>
+
+                        <div class="bo5 of-hidden size15 m-b-20">
+							<input id="address" class="sizefull s-text7 p-l-22 p-r-22" type="text" name="address" placeholder="Address" required>
+						</div>
+
+                        <div class="bo5 of-hidden size15 m-b-20">
+							<input id="address_optional" class="sizefull s-text7 p-l-22 p-r-22" type="text" name="address_optional" placeholder="Address, Suit, etc. (Optional)" required>
+						</div>
+
+                        <div class="bo5 of-hidden size15 m-b-20">
+							<input id="city" class="sizefull s-text7 p-l-22 p-r-22" type="text" name="city" placeholder="City" required>
+						</div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select class="bo5 of-hidden size15 m-b-20" id="country" required="">
+                                    <option value="">Country</option>
+                                    <option>United States</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                     Please select a valid country.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bo5 of-hidden size15 m-b-20">
+							        <input id="postal_code" class="sizefull s-text7 p-l-22 p-r-22" type="text" name="postal_code" placeholder="Postal Code" required>
+						        </div>
+                            </div>
+                        </div>
+
+                        <div class="bo5 of-hidden size15 m-b-20">
+							<input id="phone" class="sizefull s-text7 p-l-22 p-r-22" type="tel" name="phone" placeholder="Phone" required>
+						</div>
+
+                        {% if form.errors %}
+                            <p class=" label label-danger">
+                                Something went Wrong. Please Try again.
+                            </p>
+                        {% endif %}
+
+						<div class="w-size25">
+							<!-- Button -->
+							<!--<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">-->
+								<!--Send-->
+							<!--</button>-->
+                             <input type="submit" value="Send"
+                                class="btn btn-primary pull-right flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" />
+                             <input type="hidden" name="next" value="{{ next }}" />
+						</div>
+                    </form>
+                </div>
+
+
+
+
+
+				<div class="col-md-5 p-b-30">
+                    For cart
+                </div>
+            </div>
+		</div>
+	</section>
+
+<br><br>
+
+{% endblock content %}

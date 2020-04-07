@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<title>Products</title>
+
+    <!-- Title Page -->
+<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/static/Online_Shop/images/heading-pages-02.jpg);">
+    <h2 class="l-text2 t-center">
+        <!--Women-->
+        Handicrafts
+    </h2>
+    <p class="m-text13 t-center">
+        <!--New Arrivals Women Collection 2018-->
+        New Arrivals 2018
+    </p>
+</section>*
+
+    <!-- Content page -->
+<section class="bgwhite p-t-55 p-b-65">
+    <div class="container">
+
+        <div class="row">
+            <!-- Product -->
+            {% for product in products %}
+                <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                    <!-- Block2 -->
+                    <div class="block2">
+                        {% if products.created_at|date:"Y-m-d" > few_weeks|date:"Y-m-d" %}
+                        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                            {% else %}
+                            <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                {% endif %}
+                            <img  src="{{ product.front_image.url }}" alt="IMG-PRODUCT">
+                            <div class="block2-overlay trans-0-4">
+                                <div class="block2-btn-addcart w-size1 trans-0-4">
+                                    <!-- Button -->
+                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <center>
+                        <div class="block2-txt p-t-20">
+                            <a href="{% url 'products:product_info' product.code %}" class="block2-name dis-block s-text3 p-b-5">
+                                {{product.title}}
+                            </a>
+                            <span class="block2-price m-text6 p-r-5">
+                                $75.00
+                            </span>
+                        </div>
+                        </center>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination flex-m flex-w p-t-26">
+             {% for i in list %}
+                {% if i == products.number %}
+                    <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">{{i}}</a>
+                {% else %}
+                    <a href="?page={{ i }}" class="item-pagination flex-c-m trans-0-4">{{i}}</a>
+                {% endif %}
+             {% endfor %}
+        </div>
+
+    </div>
+    </div>
+</section>
+
+{% endblock content %}

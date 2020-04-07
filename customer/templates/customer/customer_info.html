@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<title>Account-Online Shop</title>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.vl {
+    border-left: 1px solid grey;
+    height: 220px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container main content">
+    <div class="w3-container">
+        <br><br>
+        <h1 style="font-weight: 900"> Account Details </h1>
+        <br>
+    </div>
+
+    <div class="w3-row">
+        <div class="w3-col w3-container m8 l3 w3-white">
+            <p>
+            <h2 class="name"><a href="#" style="font-size: 23px; font-weight: 1100;" title="My Account">Usama Maqsood</a></h2>
+                <p class="w3-large">umalick22@gmail.com</p>
+                     <h3 style="font-weight: 900">Primary Address</h3>
+                         <div class="address note">
+                             <p class="w3-large">No address</p>
+                            <p>
+                             <a href="#" class="w3-large" >View Address (0)</a>
+                             </p>
+                        </div>
+            </p>
+        </div>
+        <div class="w3-col w3-container m8 l8">
+            <div class="vl">
+                <div class="w3-container">
+                    <h3 style="font-weight: 900" >Order History</h3>
+                    <p class="w3-large">You haven’t placed any orders yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="w3-row">
+    <div class="w3-threequarter w3-container">
+        <h1></h1>
+    </div>
+    <div class="w3-quarter w3-container">
+        <h2><a href="{% url 'logout' %}" style="font-size: 23px; font-weight: 1100;" title="Logout">LOGOUT</a></h2>
+    </div>
+</div>
+<br><br>
+
+</body>
+</html>
+
+{% endblock content %}
+

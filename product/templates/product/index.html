@@ -1,0 +1,17 @@
+<title>Online_Shop</title>
+<center>
+{% if all_categories %}
+    <ul>
+       <h1> Please Select Category </h1>
+        {% for categories in all_categories %}
+            <a href="{% url 'products:category_list' categories.slug %}"> {{categories.name}} </a> <br/>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>Nothing found!</h3>
+{% endif %}
+
+    <p>You have visited this page {{ request.session.num_visits }}{% if request.session.num_visits == 1 %} time{% else %} times{% endif %}.</p>
+    <h1>{{request.session.name}}</h1>
+    <h1>{{request.session.ip}}</h1>
+</center>
