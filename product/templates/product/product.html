@@ -46,9 +46,8 @@
 
                             <center>
                             <div class="block2-txt p-t-20">
-                                <a href="{}" class="block2-name dis-block s-text3 p-b-5">
+                                <a href="{% url 'product:product_info' product_slug=product.slug %}" class="block2-name dis-block s-text3 p-b-5">
                                     {{product.title}}
-                                    {{product.slug}}
                                 </a>
                                 <span class="block2-price m-text6 p-r-5">
                                     $75.00

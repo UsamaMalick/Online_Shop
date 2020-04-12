@@ -13,8 +13,14 @@ from django.views.generic.base import TemplateView
 from django.http import HttpResponse
 from django.views import generic
 
+from product.models import Products
+
+
 def home_page(request):
-    return render(request , 'home.html')
+    all_products = Products.objects.filter(available=True).order_by('-ranking' , '-created_at')
+
+    context = { 'product' : all_products[:4] }
+    return render(request , 'home.html', context)
 
 def our_story(request):
    return render(request , 'our_story.html')
@@ -57,3 +63,7 @@ def send_email(request):
     except:
         print("An error occurred!")
     return HttpResponseRedirect(reverse('home_page'))
+
+
+def product_redirect():
+    return render('product/product.html')

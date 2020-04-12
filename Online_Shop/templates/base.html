@@ -73,7 +73,28 @@
 				<div class="wrap_menu">
 					<nav class="menu">
 						<ul class="main_menu">
+                            <li>
+                                <a href="{% url 'home_page' %}" >Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'product_redirect' %}">Products</a>
+							</li>
 
+							<li>
+								<a href="#">Cart</a>
+							</li>
+
+							<li>
+                                <a href="{% url 'our_story' %}">Our Story</a>
+							</li>
+
+							<li>
+								<a href="{% url 'contact' %}">Contact</a>
+							</li>
+
+                            <li>
+                                <a href="{% url 'help' %}">Help</a>
+							</li>
 
 						</ul>
 					</nav>
@@ -138,6 +159,7 @@
 							</div>
                             </ul>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -258,10 +280,12 @@
 						</div>
 					</li>
 
+                    <!--///////Menu of the mobile view////-->
 
 				</ul>
 			</nav>
 		</div>
+
 	</header>
 
 	<!-- Title Page -->
