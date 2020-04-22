@@ -5,7 +5,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Customers(AbstractUser):
-    email = models.EmailField(unique=True , null=False )
     address_line1 = models.CharField(max_length=100)
     address_line2 = models.CharField(max_length=100)
     country = models.CharField(max_length=128 , null=True, blank=True)

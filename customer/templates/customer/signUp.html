@@ -4,41 +4,51 @@
 {% block content %}
 <title>SIGN UP</title>
 <section class="bgwhite p-t-66 p-b-60">
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 p-b-30"></div>
-        <div class="col-md-6 p-b-30">
-            <form method="post" >
-                {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 p-b-30"></div>
+            <div class="col-md-6 p-b-30">
+                <form method="post" >
+                    {% csrf_token %}
 
-                <h4 class="m-text26 p-b-36 p-t-15">
-                    Sign Up
-                </h4>
-                <div class="bo4 of-hidden size15 m-b-20">
-                    <input type="text" class="sizefull s-text7 p-l-12 p-r-22" name="FName" id="FName" placeholder="First Name">
-                </div>
-                <div class="bo4 of-hidden size15 m-b-20">
-                    <input type="text" class="sizefull s-text7 p-l-22 p-r-22"  name="LName" id="LName" placeholder="Last Name">
-                </div>
-                <div class="bo4 of-hidden size15 m-b-20">
-                    <input type="email" class="sizefull s-text7 p-l-22 p-r-22"  name="inputEmail" id="inputEmail" placeholder="Email@Online_Shop.com">
-                </div>
-                <div class="bo4 of-hidden size15 m-b-20">
-                    <input type="password" class="sizefull s-text7 p-l-22 p-r-22" name="password1" id="password1" placeholder="Password">
-                </div>
-                <div class="bo4 of-hidden size15 m-b-20">
-                    <input type="password" class="sizefull s-text7 p-l-22 p-r-22"  name="password2" id="password2" placeholder="Confirm Password">
-                </div>
+                    <h4 class="m-text26 p-b-36 p-t-15">
+                        Sign Up
+                    </h4>
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input type="text" class="sizefull s-text7 p-l-12 p-r-22" name="FName" id="FName" placeholder="First Name" required>
+                    </div>
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input type="text" class="sizefull s-text7 p-l-22 p-r-22"  name="LName" id="LName" placeholder="Last Name" required>
+                    </div>
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input type="email" class="sizefull s-text7 p-l-22 p-r-22"  name="inputEmail" id="inputEmail" placeholder="Email@Online_Shop.com" required>
+                    </div>
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input type="password" class="sizefull s-text7 p-l-22 p-r-22" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input type="password" class="sizefull s-text7 p-l-22 p-r-22"  name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
+                    </div>
 
-                <input type="submit" class="btn btn-primary" value="Sign Up"/>
+                    <input type="submit" class="btn btn-primary" value="Sign Up" onclick="return Validate()"/>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-    </section>
+</section>
 
-
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 {% endblock content %}
 
