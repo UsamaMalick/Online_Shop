@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 
     'product.apps.ProductConfig',
     'customer.apps.CustomerConfig',
     'order.apps.OrderConfig',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -92,6 +94,9 @@ DATABASES = {
     #     'PORT' : '',
     # }
 }
+
+# AUTH_USER_MODEL = 'YourAppName.YourClassName'
+AUTH_USER_MODEL = 'customer.Customers'
 
 
 # Password validation

@@ -1,16 +1,16 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 # Create your views here.
+from django.views.generic import CreateView
+
 from .models import Customers
 from order.models import Orders
 
 
-class SignUp(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'customer/signUp.html'
+def SignUp(request):
+   return render(request , 'customer/signUp.html')
 
 def info(request):
     try:

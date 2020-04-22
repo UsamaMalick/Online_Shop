@@ -1,20 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 # from order.models import Orders
 # Create your models here.
 
 
-class Customers(models.Model):
-    #email = models.EmailField(label='e-mail', required = True )  #changes
-    email = models.EmailField(unique=True, null=True)
-    fname = models.CharField(max_length=40)
-    lname = models.CharField(max_length=40)
+class Customers(AbstractUser):
+    email = models.EmailField(unique=True , null=False )
     address_line1 = models.CharField(max_length=100)
     address_line2 = models.CharField(max_length=100)
-    address_line3 = models.CharField(max_length=100)
-    country = models.CharField(max_length=100 , default='NULL')
-    City = models.CharField(max_length=100)
-    zipcode = models.CharField(max_length=30)
-
-
-    # def __str__(self):
-    #     return self.fname + ' ' + self.lname
+    country = models.CharField(max_length=128 , null=True, blank=True)
+    city = models.CharField(max_length=128, null=True, blank=True)
+    zip_code = models.CharField(max_length=128, null=True, blank=True)
