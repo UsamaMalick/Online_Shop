@@ -3,6 +3,21 @@
 {% load static %}
 {% block content %}
 <title>SIGN UP</title>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.vl {
+    border-left: 1px solid grey;
+    height: 220px;
+}
+
+</style>
+</head>
+
 <section class="bgwhite p-t-66 p-b-60">
     <div class="container">
         <div class="row">
@@ -29,10 +44,21 @@
                     <div class="bo4 of-hidden size15 m-b-20">
                         <input type="password" class="sizefull s-text7 p-l-22 p-r-22"  name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
                     </div>
-
                     <input type="submit" class="btn btn-primary" value="Sign Up" onclick="return Validate()"/>
 
                 </form>
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="w3-threequarter w3-container">
+                <h5></h5>
+            </div>
+            <div class="w3-quarter w3-container">
+                <div class="form row">
+                    <h5 class="m-text16 p-b-26 p-t-11" style="font-size: 16px;">Already have an account?
+                        <a href="#" class="m-text16 p-b-26 p-t-11" style="font-size: 16px;" title="Logout">LOGIN</a></h5>
+                </div>
             </div>
         </div>
     </div>
@@ -49,6 +75,7 @@
         return true;
     }
 </script>
+
 
 {% endblock content %}
 

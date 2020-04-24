@@ -54,6 +54,8 @@
           <option value="E501" />
           <option value="W29" />
           <option value="E501" />
+          <option value="W29" />
+          <option value="E501" />
         </list>
       </option>
     </inspection_tool>
@@ -61,6 +63,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="src.hyrportal.apps.core.tasks.hyrportal" />
+          <option value="requests.auth.login" />
         </list>
       </option>
     </inspection_tool>
